@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        /* CSS styles for images */
+        .gallery-img {
+            width: 200px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML for six images -->
+    <img src="image1.jpg" alt="Image 1" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+    <img src="image2.jpg" alt="Image 2" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+    <img src="image3.jpg" alt="Image 3" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+    <img src="image4.jpg" alt="Image 4" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+    <img src="image5.jpg" alt="Image 5" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+    <img src="image6.jpg" alt="Image 6" class="gallery-img" tabindex="0" onmouseover="upDate(this)" onmouseout="undo()" onfocus="addTabFocus(this)" onblur="removeTabFocus(this)">
+
+    <!-- JavaScript code -->
+    <script>
+        // Function to handle mouseover event
+        function upDate(element) {
+            console.log("Mouseover event triggered.");
+            // Your code to update the preview area
+        }
+
+        // Function to handle mouseout event
+        function undo() {
+            console.log("Mouseout event triggered.");
+            // Your code to revert the changes made in upDate()
+        }
+
+        // Function to handle focus event
+        function addTabFocus(element) {
+            console.log("Focus event triggered.");
+            element.setAttribute("tabfocus", "true");
+        }
+
+        // Function to handle blur event
+        function removeTabFocus(element) {
+            console.log("Blur event triggered.");
+            element.removeAttribute("tabfocus");
+        }
+
+        // Function to handle onload event
+        window.onload = function() {
+            console.log("Page loaded.");
+            var images = document.querySelectorAll('.gallery-img');
+            for (var i = 0; i < images.length; i++) {
+                images[i].setAttribute("tabindex", i + 1);
+            }
+        };
+    </script>
+</body>
+</html>
